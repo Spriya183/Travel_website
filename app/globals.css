@@ -1,26 +1,200 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  --color-primary: #1a365d;
+  --color-primary-dark: #0f2744;
+  --color-secondary: #2c5282;
+  --color-gold: #c49b63;
+  --color-gold-dark: #a57c4a;
+  --color-gold-light: #d4af7a;
+  --color-light-gray: #F3F4F6;
+  --color-soft-sky: #E0F2FE;
+  --color-sky-blue: #E0F2FE;
+  --color-luxury-cream: #faf8f5;
+  --color-luxury-dark: #1a1a1a;
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --font-sans: var(--font-montserrat), sans-serif;
+  --font-poppins: var(--font-poppins), sans-serif;
+  --font-playfair: var(--font-playfair), serif;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 8s ease-in-out infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce-slow: bounce-slow 2s infinite;
+  --animate-fade-in: fadeIn 1s ease-out forwards;
+  --animate-slide-up: slideUp 0.8s ease-out forwards;
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+  }
+  @keyframes float-delayed {
+    0%, 100% { transform: translateY(0px) translateX(0px); }
+    50% { transform: translateY(-20px) translateX(10px); }
+  }
+  @keyframes bounce-slow {
+    0%, 100% { transform: translateY(0); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+    50% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
 
+:root {
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #ffffff;
+  color: #111827;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Force Tailwind color classes to load */
+.bg-primary { background-color: #1a365d; }
+.bg-primary-dark { background-color: #0f2744; }
+.bg-secondary { background-color: #2c5282; }
+.bg-gold { background-color: #c49b63; }
+.bg-gold-dark { background-color: #a57c4a; }
+.bg-gold-light { background-color: #d4af7a; }
+.bg-soft-sky { background-color: #E0F2FE; }
+.bg-sky-blue { background-color: #E0F2FE; }
+.bg-luxury-cream { background-color: #faf8f5; }
+.bg-luxury-dark { background-color: #1a1a1a; }
+.text-primary { color: #1a365d; }
+.text-primary-dark { color: #0f2744; }
+.text-secondary { color: #2c5282; }
+.text-gold { color: #c49b63; }
+.text-gold-dark { color: #a57c4a; }
+.text-gold-light { color: #d4af7a; }
+.text-luxury-dark { color: #1a1a1a; }
+.border-primary { border-color: #1a365d; }
+.border-secondary { border-color: #2c5282; }
+.border-gold { border-color: #c49b63; }
+.border-gold-light { border-color: #d4af7a; }
+.hover\:bg-gold:hover { background-color: #c49b63; }
+.hover\:bg-gold-dark:hover { background-color: #a57c4a; }
+.hover\:bg-gold-light:hover { background-color: #d4af7a; }
+.hover\:bg-primary:hover { background-color: #1a365d; }
+.hover\:bg-primary-dark:hover { background-color: #0f2744; }
+.hover\:bg-secondary:hover { background-color: #2c5282; }
+.hover\:text-gold:hover { color: #c49b63; }
+.hover\:text-gold-light:hover { color: #d4af7a; }
+.hover\:text-primary:hover { color: #1a365d; }
+.hover\:text-primary-dark:hover { color: #0f2744; }
+.hover\:text-secondary:hover { color: #2c5282; }
+.group-hover\:bg-gold:is(.group:hover *) { background-color: #c49b63; }
+.group-hover\:bg-primary:is(.group:hover *) { background-color: #1a365d; }
+.group-hover\:text-primary:is(.group:hover *) { color: #1a365d; }
+.group-hover\:text-primary-dark:is(.group:hover *) { color: #0f2744; }
+.group-hover\:text-gold:is(.group:hover *) { color: #c49b63; }
+.group-hover\:text-white:is(.group:hover *) { color: #ffffff; }
+
+/* Custom Utilities */
+.glass-nav {
+  background: rgba(26, 54, 93, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(196, 155, 99, 0.15);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 155, 99, 0.1);
+}
+
+.text-shadow-premium {
+  text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Scrollbar Customization */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #faf8f5;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #c49b63, #a57c4a);
+  border-radius: 10px;
+  border: 2px solid #faf8f5;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #d4af7a, #c49b63);
+}
+
+/* Custom Underline Hover Animation */
+.link-hover-effect {
+  position: relative;
+}
+
+.link-hover-effect::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #c49b63, #d4af7a);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(196, 155, 99, 0.4);
+}
+
+.link-hover-effect:hover::after {
+  width: 100%;
+}
+
+/* Custom Card Hover Scale/Shadow */
+.hover-premium-card {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-premium-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px -10px rgba(11, 79, 156, 0.15), 0 10px 20px -5px rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient text utility */
+.text-gradient-gold {
+  background: linear-gradient(135deg, #c49b63, #d4af7a, #c49b63);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium luxury utilities */
+.luxury-shadow {
+  box-shadow: 0 10px 40px rgba(26, 54, 93, 0.1), 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.luxury-shadow-lg {
+  box-shadow: 0 20px 60px rgba(26, 54, 93, 0.15), 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.premium-border {
+  border: 1px solid;
+  border-image: linear-gradient(135deg, rgba(196, 155, 99, 0.3), rgba(212, 175, 122, 0.1)) 1;
 }
