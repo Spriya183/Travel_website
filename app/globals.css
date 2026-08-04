@@ -127,6 +127,18 @@ body {
   text-shadow: 0 4px 6px rgba(0, 0, 0, 0.3), 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+.text-shadow-luxury {
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 4px 8px rgba(0, 0, 0, 0.4),
+    0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.drop-shadow-luxury {
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.5))
+          drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
 /* Scrollbar Customization */
 ::-webkit-scrollbar {
   width: 10px;

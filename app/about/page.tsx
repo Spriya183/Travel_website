@@ -248,6 +248,54 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Statistics - Numbers That Speak */}
+      <section className="py-24 bg-gradient-to-r from-primary via-secondary to-primary relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-96 h-96 bg-gold rounded-full blur-3xl" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-light rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-playfair text-xs uppercase tracking-widest font-bold text-gold mb-2">
+              Our Achievements
+            </h2>
+            <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
+              Numbers That Speak
+            </h3>
+            <div className="w-16 h-1 bg-gradient-to-r from-gold via-gold-light to-gold mx-auto mt-4 rounded-full" />
+          </motion.div>
+
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { target: 1000, suffix: "+", label: "Happy Travelers" },
+              { target: 500, suffix: "+", label: "Successful Tours" },
+              { target: 10, suffix: "+", label: "Popular Destinations" },
+              { target: 5, suffix: "★", label: "Customer Rating" },
+            ].map((stat, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, scale: 0.8 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.1 }}
+                className="text-center"
+              >
+                <CountUp target={stat.target} suffix={stat.suffix} />
+                <p className="text-white/80 mt-2 text-sm font-semibold uppercase tracking-wider">
+                  {stat.label}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Meet Our Drivers */}
       <section className="py-24 bg-gradient-to-b from-luxury-cream to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -266,34 +314,25 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-gradient-to-r from-gold via-gold-light to-gold mx-auto mt-4 rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {[
               {
-                name: "Ram Bahadur Thapa",
-                role: "Senior Tour Driver",
-                experience: "12+ Years",
-                languages: "English, Hindi, Nepali",
-                rating: 4.9,
-                bio: "Expert in mountain driving with extensive knowledge of Nepal's cultural heritage sites.",
-                badge: "Gold Certified"
-              },
-              {
-                name: "Suresh Gurung",
-                role: "Travel Guide & Driver",
-                experience: "9+ Years",
-                languages: "English, Japanese, Nepali",
-                rating: 5.0,
-                bio: "Specialized in adventure tours and trekking route transfers with perfect safety record.",
-                badge: "Premium Guide"
-              },
-              {
-                name: "Bikash Shrestha",
-                role: "Airport Transfer Specialist",
+                name: "Kusal Nepal",
+                role: "Travel guide And Driver",
                 experience: "8+ Years",
-                languages: "English, Chinese, Nepali",
-                rating: 4.8,
-                bio: "Professional airport pickup expert known for punctuality and excellent customer service.",
-                badge: "Certified Driver"
+                languages: "English, Hindi, Nepali",
+                location: "Kathmandu, Nepal",
+                bio: "Expert in mountain driving with extensive knowledge of Nepal's cultural heritage sites.",
+                slug: "kusal-nepal"
+              },
+              {
+                name: "Ramanath Upadhyaya",
+                role: "Travel Guide & Driver",
+                experience: "20+ Years",
+                languages: "English, Japanese, Nepali",
+                location: "Kathmandu, Nepal",
+                bio: "Specialized in adventure tours and trekking route transfers with perfect safety record.",
+                slug: "ramanath-upadhyaya"
               },
             ].map((driver, idx) => (
               <motion.div
@@ -302,51 +341,88 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="group bg-white rounded-2xl overflow-hidden border border-gold/10 shadow-luxury hover:shadow-luxury-lg transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="relative h-64 bg-gradient-to-br from-primary to-secondary">
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-32 h-32 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
-                      {driver.name.split(' ').map(n => n[0]).join('')}
+                <Link href={`/drivers/${driver.slug}`}
+                  className="group block bg-white rounded-3xl overflow-hidden shadow-luxury hover:shadow-luxury-lg transition-all duration-500 hover:-translate-y-2"
+                >
+                  {/* Driver Image with Overlay */}
+                  <div className="relative h-96 overflow-hidden bg-gray-100">
+                    <Image 
+                      src={driver.slug === "kusal-nepal" ? "/images/kusal.jpg" : "/images/ramanath.jpg"}
+                      alt={driver.name}
+                      fill
+                      className="object-cover object-top group-hover:scale-105 transition-transform duration-700"
+                      priority
+                    />
+                    
+                    {/* Dark gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                    
+                    {/* Steering wheel icon circle - Golden color */}
+                    <div className="absolute top-6 right-6 w-14 h-14 rounded-full bg-[#c4a574] flex items-center justify-center shadow-lg">
+                      <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <circle cx="12" cy="12" r="9" strokeWidth="2" />
+                        <circle cx="12" cy="12" r="3" strokeWidth="2" fill="currentColor" />
+                        <line x1="12" y1="3" x2="12" y2="6" strokeWidth="2" />
+                        <line x1="12" y1="18" x2="12" y2="21" strokeWidth="2" />
+                        <line x1="3" y1="12" x2="6" y2="12" strokeWidth="2" />
+                        <line x1="18" y1="12" x2="21" y2="12" strokeWidth="2" />
+                      </svg>
                     </div>
-                  </div>
-                  <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-gold">
-                    {driver.badge}
-                  </div>
-                </div>
 
-                <div className="p-6">
-                  <h4 className="font-sans font-bold text-xl text-luxury-dark mb-1">{driver.name}</h4>
-                  <p className="text-gold text-sm font-semibold mb-3">{driver.role}</p>
-                  
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-sm text-zinc-600">
-                      <Calendar size={16} className="text-gold" />
-                      <span>{driver.experience} Experience</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm text-zinc-600">
-                      <Globe size={16} className="text-gold" />
-                      <span>{driver.languages}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Star size={16} className="text-gold fill-gold" />
-                      <span className="font-bold text-luxury-dark">{driver.rating}</span>
-                      <span className="text-zinc-500">Rating</span>
+                    {/* Hello, I'm & Name overlay at bottom */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
+                      <p className="text-white/90 text-sm font-medium mb-1">Hello, I&apos;m</p>
+                      <h4 className="text-white font-playfair text-3xl font-bold mb-1">{driver.name}</h4>
+                      <p className="text-white/90 text-sm font-medium">{driver.role}</p>
                     </div>
                   </div>
 
-                  <p className="text-sm text-zinc-600 leading-relaxed mb-4">{driver.bio}</p>
+                  {/* Driver Info Card */}
+                  <div className="p-6">
+                    {/* 3-Column Info Grid */}
+                    <div className="grid grid-cols-3 gap-3 mb-6">
+                      <div className="text-center p-3 bg-[#f5f0e8] rounded-xl">
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <Calendar size={16} className="text-[#c4a574]" />
+                        </div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Experience</p>
+                        <p className="text-sm font-bold text-gray-900">{driver.experience}</p>
+                      </div>
+                      
+                      <div className="text-center p-3 bg-[#f5f0e8] rounded-xl">
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <Globe size={16} className="text-[#c4a574]" />
+                        </div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Languages</p>
+                        <p className="text-sm font-bold text-gray-900">{driver.languages.split(',').length}</p>
+                      </div>
+                      
+                      <div className="text-center p-3 bg-[#f5f0e8] rounded-xl">
+                        <div className="flex items-center justify-center gap-1 mb-1">
+                          <MapPin size={16} className="text-[#c4a574]" />
+                        </div>
+                        <p className="text-xs text-gray-500 uppercase tracking-wider mb-1">Location</p>
+                        <p className="text-sm font-bold text-gray-900">Nepal</p>
+                      </div>
+                    </div>
 
-                  <div className="flex gap-2">
-                    <a href="https://wa.me/9779824962065" target="_blank" rel="noopener noreferrer" 
-                      className="flex-1 bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white text-center py-2 rounded-lg text-sm font-semibold transition-all duration-300">
-                      Contact
-                    </a>
-                    <button className="px-4 py-2 border border-gold/30 rounded-lg text-gold hover:bg-gold/5 transition-all">
-                      <Phone size={16} />
-                    </button>
+                    {/* Bio Text */}
+                    <p className="text-sm text-gray-600 leading-relaxed mb-6">{driver.bio}</p>
+
+                    {/* Action Buttons */}
+                    <div className="flex gap-3">
+                      <Link href={`/drivers/${driver.slug}`}
+                        className="flex-1 bg-[#c4a574] hover:bg-[#b39565] text-white text-center py-3 rounded-xl text-sm font-semibold transition-all duration-300">
+                        View Profile
+                      </Link>
+                      <a href="tel:+9779824962065"
+                        className="px-5 py-3 bg-[#c4a574] hover:bg-[#b39565] text-white rounded-xl transition-all duration-300">
+                        <Phone size={18} />
+                      </a>
+                    </div>
                   </div>
-                </div>
+                </Link>
               </motion.div>
             ))}
           </div>
@@ -371,16 +447,18 @@ export default function AboutPage() {
             <div className="w-16 h-1 bg-gradient-to-r from-gold via-gold-light to-gold mx-auto mt-4 rounded-full" />
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-6">
             {[
-              { name: "Kathmandu", trips: "500+", rating: 4.9, image: "/images/hero_pashupatinath.png" },
-              { name: "Pokhara", trips: "350+", rating: 5.0, image: "/images/hero_pokhara.png" },
-              { name: "Chitwan", trips: "200+", rating: 4.8, image: "/images/service_chitwan.png" },
-              { name: "Lumbini", trips: "150+", rating: 4.9, image: "/images/hero_pokhara.png" },
-              { name: "Bhaktapur", trips: "300+", rating: 4.7, image: "/images/hero_pashupatinath.png" },
-              { name: "Nagarkot", trips: "250+", rating: 5.0, image: "/images/hero_mountains.png" },
-              { name: "Bandipur", trips: "100+", rating: 4.8, image: "/images/hero_mountains.png" },
-              { name: "Everest Region", trips: "80+", rating: 5.0, image: "/images/hero_mountains.png" },
+              { name: "Kathmandu city", trips: "1000+", image: "/images/hero_pashupatinath.png" },
+              { name: "Pokhara", trips: "200+", image: "/images/hero_pokhara.png" },
+              { name: "Chitwan", trips: "270+", image: "/images/chitwantour.jpg" },
+              { name: "Lumbini", trips: "150+",  image: "/images/lumbini.jpg" },
+              { name: "Nagarkot", trips: "700+",  image: "/images/nagarkotview.jpg" },
+              { name: "Bandipur", trips: "100+",  image: "/images/bandipur.jpg" },
+              { name: "Ilam", trips: "50+",  image: "/images/ilam.jpg" },
+              { name: "Chandragiri", trips: "800+",  image: "/images/Chandragiricablecar.jpg" },
+              { name: "Chitlang", trips: "800+",  image: "/images/chitlang.jpg" },
+              
             ].map((dest, idx) => (
               <motion.div
                 key={idx}
@@ -401,7 +479,7 @@ export default function AboutPage() {
                   <h4 className="font-playfair text-2xl font-bold mb-2 group-hover:text-gold transition-colors">
                     {dest.name}
                   </h4>
-                  <div className="flex items-center justify-between">
+                 { /*<div className="flex items-center justify-between">
                     <div className="flex items-center gap-1">
                       <Star size={14} className="text-gold fill-gold" />
                       <span className="text-sm font-bold">{dest.rating}</span>
@@ -409,7 +487,7 @@ export default function AboutPage() {
                     <button className="text-sm font-semibold flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-opacity">
                       Learn More <ArrowRight size={14} />
                     </button>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             ))}
@@ -468,8 +546,14 @@ export default function AboutPage() {
       </section>
 
       {/* Our Fleet */}
-      <section className="py-24 bg-gradient-to-b from-luxury-cream to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-24 bg-white relative overflow-hidden">
+        {/* Background decorative elements */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute top-20 left-20 w-96 h-96 bg-gold rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -483,37 +567,32 @@ export default function AboutPage() {
               Premium Fleet Selection
             </h3>
             <div className="w-16 h-1 bg-gradient-to-r from-gold via-gold-light to-gold mx-auto mt-4 rounded-full" />
+            <p className="text-zinc-600 mt-6 max-w-2xl mx-auto">
+              Travel in comfort and style with our well-maintained, premium vehicles designed for Nepal&apos;s terrain
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {[
               {
-                name: "Tourist Car",
+                name: "Classic Tourist Sedan",
+                subtitle: "Perfect for Airport Transfers & City Tours",
                 capacity: "4 Passengers",
-                features: ["AC", "Leather Seats", "GPS"],
-                luggage: "3 Large Bags",
-                image: "/images/about_taxi.png"
+                features: ["Premium AC", "Comfortable Leather Seats", "GPS Navigation", "Spacious Interior", "Clean & Sanitized", "Professional Driver"],
+                luggage: "3 Large Suitcases",
+                image: "/images/gadi1.png",
+                color: "Pearl White",
+                highlight: "Most Popular"
               },
               {
-                name: "Premium SUV",
-                capacity: "6 Passengers",
-                features: ["Premium AC", "Spacious", "Mountain Ready"],
-                luggage: "5 Large Bags",
-                image: "/images/service_airport.png"
-              },
-              {
-                name: "Hiace Van",
-                capacity: "10 Passengers",
-                features: ["AC", "Group Travel", "Comfortable"],
-                luggage: "8 Large Bags",
-                image: "/images/about_taxi.png"
-              },
-              {
-                name: "Luxury Jeep",
-                capacity: "5 Passengers",
-                features: ["4WD", "Premium Interior", "Adventure Ready"],
-                luggage: "4 Large Bags",
-                image: "/images/service_airport.png"
+                name: "Premium Tourist Sedan",
+                subtitle: "Ideal for Long Distance & Family Travel",
+                capacity: "4-6 Passengers",
+                features: ["Dual-Tone Sport Design", "Enhanced Comfort", "Mountain Ready", "Extra Luggage Space", "Premium Audio System", "Safety Certified"],
+                luggage: "4 Large Suitcases",
+                image: "/images/gadi2.png",
+                color: "Pearl White",
+                highlight: "Best for Families"
               },
             ].map((vehicle, idx) => (
               <motion.div
@@ -521,96 +600,131 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="group bg-white rounded-2xl overflow-hidden border border-gold/10 shadow-luxury hover:shadow-luxury-lg transition-all duration-500 hover:-translate-y-2"
+                transition={{ delay: idx * 0.2 }}
+                className="group relative bg-white rounded-3xl overflow-hidden border-2 border-gold/20 shadow-luxury hover:shadow-luxury-lg transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="relative h-48 bg-gradient-to-br from-primary/10 to-secondary/10">
-                  <Image src={vehicle.image} alt={vehicle.name} fill className="object-cover group-hover:scale-110 transition-transform duration-700" />
+               
+
+                {/* Vehicle Image */}
+                <div className="relative h-80 bg-gradient-to-br from-zinc-100 to-zinc-200 overflow-hidden">
+                  <Image 
+                    src={vehicle.image} 
+                    alt={vehicle.name} 
+                    fill 
+                    className="object-cover group-hover:scale-105 transition-transform duration-700" 
+                    priority={idx === 0}
+                  />
+                  {/* Subtle gradient for badge visibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/10" />
                 </div>
                 
-                <div className="p-6">
-                  <h4 className="font-sans font-bold text-xl text-luxury-dark mb-4 group-hover:text-gold transition-colors">
-                    {vehicle.name}
-                  </h4>
+                {/* Vehicle Details */}
+                <div className="p-8">
+                  <div className="mb-6">
+                    <h4 className="font-playfair text-2xl font-bold text-luxury-dark mb-2 group-hover:text-gold transition-colors">
+                      {vehicle.name}
+                    </h4>
+                    <p className="text-zinc-600 text-sm font-medium">{vehicle.subtitle}</p>
+                  </div>
                   
-                  <div className="space-y-3 mb-4">
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-zinc-600">Seating</span>
-                      <span className="font-semibold text-luxury-dark">{vehicle.capacity}</span>
+                  {/* Key Specs */}
+                  <div className="grid grid-cols-2 gap-4 mb-6 pb-6 border-b border-gold/10">
+                    <div className="bg-gradient-to-br from-gold/5 to-gold-light/5 p-4 rounded-xl border border-gold/10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <Users size={18} className="text-gold" />
+                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Capacity</span>
+                      </div>
+                      <p className="font-bold text-luxury-dark">{vehicle.capacity}</p>
                     </div>
-                    <div className="flex items-center justify-between text-sm">
-                      <span className="text-zinc-600">Luggage</span>
-                      <span className="font-semibold text-luxury-dark">{vehicle.luggage}</span>
+                    
+                    <div className="bg-gradient-to-br from-primary/5 to-secondary/5 p-4 rounded-xl border border-primary/10">
+                      <div className="flex items-center gap-2 mb-2">
+                        <svg className="w-[18px] h-[18px] text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                        </svg>
+                        <span className="text-xs font-semibold text-zinc-500 uppercase tracking-wider">Luggage</span>
+                      </div>
+                      <p className="font-bold text-luxury-dark">{vehicle.luggage}</p>
                     </div>
                   </div>
 
-                  <div className="border-t border-gold/10 pt-4">
-                    <p className="text-xs text-zinc-500 mb-2 font-semibold uppercase tracking-wider">Features</p>
-                    <div className="flex flex-wrap gap-2">
+                  {/* Vehicle Color */}
+                  <div className="mb-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <div className="w-8 h-8 rounded-full bg-white border-2 border-zinc-300 shadow-sm" />
+                      <div>
+                        <p className="text-xs text-zinc-500 font-semibold uppercase tracking-wider">Color</p>
+                        <p className="text-sm font-bold text-luxury-dark">{vehicle.color}</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Features */}
+                  <div>
+                    <h5 className="text-xs font-bold text-zinc-500 mb-4 uppercase tracking-wider flex items-center gap-2">
+                      <CheckCircle size={16} className="text-gold" />
+                      Premium Features
+                    </h5>
+                    <div className="grid grid-cols-2 gap-3">
                       {vehicle.features.map((feature, i) => (
-                        <span key={i} className="px-3 py-1 bg-gold/10 text-gold text-xs font-medium rounded-full">
-                          {feature}
-                        </span>
+                        <div key={i} className="flex items-start gap-2">
+                          <CheckCircle size={14} className="text-gold flex-shrink-0 mt-0.5" />
+                          <span className="text-sm text-zinc-700">{feature}</span>
+                        </div>
                       ))}
                     </div>
+                  </div>
+
+                  {/* Book Button */}
+                  <div className="mt-8 pt-6 border-t border-gold/10">
+                    <a 
+                      href="https://wa.me/9779824962065?text=I%20want%20to%20book%20the%20vehicle" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="block w-full bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white text-center font-bold py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 group"
+                    >
+                      <span className="flex items-center justify-center gap-2">
+                        <Phone size={18} />
+                        Book This Vehicle
+                        <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
+                      </span>
+                    </a>
                   </div>
                 </div>
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
 
-      {/* Statistics */}
-      <section className="py-24 bg-gradient-to-r from-primary via-secondary to-primary relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-96 h-96 bg-gold rounded-full blur-3xl" />
-          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold-light rounded-full blur-3xl" />
-        </div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Additional Info */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="mt-16 text-center"
           >
-            <h2 className="font-playfair text-xs uppercase tracking-widest font-bold text-gold mb-2">
-              Our Achievements
-            </h2>
-            <h3 className="font-playfair text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
-              Numbers That Speak
-            </h3>
-            <div className="w-16 h-1 bg-gradient-to-r from-gold via-gold-light to-gold mx-auto mt-4 rounded-full" />
+            <div className="bg-gradient-to-r from-luxury-cream via-white to-luxury-cream p-8 rounded-2xl border border-gold/10 max-w-4xl mx-auto">
+              <h4 className="font-playfair text-2xl font-bold text-luxury-dark mb-4">
+                All Vehicles Include
+              </h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-6">
+                {[
+                  { icon: Shield, text: "Fully Insured" },
+                  { icon: CheckCircle, text: "Regular Maintenance" },
+                  { icon: Clock, text: "24/7 Available" },
+                  { icon: Users, text: "Expert Drivers" }
+                ].map((item, idx) => (
+                  <div key={idx} className="flex flex-col items-center gap-2">
+                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gold/20 to-gold-light/20 flex items-center justify-center">
+                      <item.icon size={24} className="text-gold" />
+                    </div>
+                    <p className="text-sm font-semibold text-luxury-dark">{item.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { target: 1000, suffix: "+", label: "Happy Travelers" },
-              { target: 500, suffix: "+", label: "Successful Tours" },
-              { target: 10, suffix: "+", label: "Popular Destinations" },
-              { target: 5, suffix: "★", label: "Customer Rating" },
-            ].map((stat, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="text-center"
-              >
-                <CountUp target={stat.target} suffix={stat.suffix} />
-                <p className="text-white/80 mt-2 text-sm font-semibold uppercase tracking-wider">
-                  {stat.label}
-                </p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
-
-
-
 
       {/* Call to Action */}
       <section className="relative py-28 bg-cover bg-center bg-no-repeat bg-fixed overflow-hidden"

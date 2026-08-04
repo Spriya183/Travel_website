@@ -9,7 +9,6 @@ export default function Testimonials() {
       name: "David Miller",
       country: "Australia",
       initials: "DM",
-      rating: 5,
       text: "Unbelievable service! The driver picked us up right on time at Tribhuvan International Airport. The SUV taxi was clean, spacious, and the ride to Pokhara was incredibly smooth. Highly recommended for any traveler visiting Nepal!",
       color: "from-blue-600 to-indigo-600",
     },
@@ -17,7 +16,6 @@ export default function Testimonials() {
       name: "Sarah Jenkins",
       country: "United Kingdom",
       initials: "SJ",
-      rating: 5,
       text: "We hired Clasic Journey Nepal for our family multi-day trip. They helped us design a custom package for Kathmandu, Chitwan, and Pokhara. Our driver was extremely polite, spoke good English, and knew the safest mountain routes.",
       color: "from-amber-500 to-orange-600",
     },
@@ -25,7 +23,6 @@ export default function Testimonials() {
       name: "Rajesh Sharma",
       country: "India",
       initials: "RS",
-      rating: 5,
       text: "Highly professional tourist taxi service. Very easy booking process via WhatsApp and prompt communication. The rates are transparent with no hidden margins. Will definitely use them again for our next Himalayan holiday.",
       color: "from-emerald-500 to-teal-600",
     },
@@ -33,7 +30,6 @@ export default function Testimonials() {
       name: "Emily Dupont",
       country: "France",
       initials: "ED",
-      rating: 5,
       text: "As a solo female traveler, safety was my primary concern. The driver from Clasic Journey Nepal was extremely respectful, helpful, and professional throughout my sightseeing tours in Kathmandu and Bhaktapur.",
       color: "from-purple-600 to-pink-600",
     },
@@ -41,7 +37,6 @@ export default function Testimonials() {
       name: "Kenji Tanaka",
       country: "Japan",
       initials: "KT",
-      rating: 5,
       text: "Superb airport drop-off service. The driver arrived 10 minutes early at our hotel. The sedan tourist taxi was clean and the air conditioning worked perfectly. Safe driving practices and great customer care.",
       color: "from-rose-500 to-red-600",
     },
@@ -107,13 +102,6 @@ export default function Testimonials() {
 
           {/* Slider Content Wrapper */}
           <div className="relative min-h-[250px] flex flex-col items-center justify-between text-center">
-            {/* Stars */}
-            <div className="flex gap-1 mb-6">
-              {[...Array(reviews[activeIndex].rating)].map((_, i) => (
-                <Star key={i} size={18} className="fill-gold text-gold" />
-              ))}
-            </div>
-
             {/* Review Text */}
             <p className="font-sans text-base sm:text-lg text-zinc-700 italic leading-relaxed font-light mb-8 max-w-2xl">
               &ldquo;{reviews[activeIndex].text}&rdquo;

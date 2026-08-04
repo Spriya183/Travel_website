@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowDown, Calendar, Compass, Sparkles, MapPin } from "lucide-react";
+import { Calendar, Compass, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function Hero() {
@@ -37,7 +37,13 @@ export default function Hero() {
   }, [slides.length]);
 
   return (
-    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-luxury-dark via-black to-luxury-dark">
+    <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
+
+      {/* Static Background Base - Prevents black flash */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('${slides[0].image}')` }}
+      />
 
       {/* Background Images with Ken Burns Effect */}
       <AnimatePresence mode="wait">
@@ -56,9 +62,12 @@ export default function Hero() {
         ))}
       </AnimatePresence>
 
-      {/* Premium Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-luxury-dark/70 via-luxury-dark/40 to-luxury-dark/80 z-10" />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-black/50 z-10" />
+      {/* Enhanced Premium Gradient Overlays for Better Text Visibility */}
+      <div className="absolute inset-0 bg-gradient-to-b from-luxury-dark/85 via-luxury-dark/60 to-luxury-dark/85 z-10" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-transparent to-black/60 z-10" />
+      
+      {/* Additional Text Contrast Layer */}
+      <div className="absolute inset-0 bg-black/30 z-10" />
 
       {/* Main Content Container */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-30 w-full">
@@ -76,7 +85,7 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               className="mb-6"
             >
-              <h1 className="font-playfair font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[1.1] mb-4">
+              <h1 className="font-playfair font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white tracking-tight leading-[1.1] mb-4 drop-shadow-2xl">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={activeIndex}
@@ -84,12 +93,12 @@ export default function Hero() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.5 }}
-                    className="block"
+                    className="block text-shadow-luxury"
                   >
                     {slides[activeIndex].title}
                   </motion.span>
                 </AnimatePresence>
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark text-shadow-premium">
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-gold via-gold-light to-gold-dark drop-shadow-2xl">
                   <AnimatePresence mode="wait">
                     <motion.span
                       key={`subtitle-${activeIndex}`}
@@ -97,6 +106,7 @@ export default function Hero() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -20 }}
                       transition={{ duration: 0.5, delay: 0.1 }}
+                      className="text-shadow-luxury"
                     >
                       {slides[activeIndex].subtitle}
                     </motion.span>
@@ -110,7 +120,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
-              className="font-sans text-lg sm:text-xl md:text-2xl text-zinc-200 max-w-2xl mx-auto lg:mx-0 mb-4"
+              className="font-sans text-lg sm:text-xl md:text-2xl text-white max-w-2xl mx-auto lg:mx-0 mb-4 drop-shadow-lg"
             >
               <AnimatePresence mode="wait">
                 <motion.span
@@ -119,6 +129,7 @@ export default function Hero() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   transition={{ duration: 0.5 }}
+                  className="text-shadow-luxury"
                 >
                   {slides[activeIndex].description}
                 </motion.span>
@@ -129,7 +140,7 @@ export default function Hero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-              className="font-sans text-base text-zinc-400 max-w-xl mx-auto lg:mx-0 mb-10"
+              className="font-sans text-base text-white/90 max-w-xl mx-auto lg:mx-0 mb-10 drop-shadow-md"
             >
               Luxury airport transfers • Customized tours • Professional chauffeurs • 24/7 service
             </motion.p>

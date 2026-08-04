@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircle2, Clock, MapPin, Car, ShieldCheck, HelpCircle, ArrowRight } from "lucide-react";
+import { CheckCircle2, Clock, MapPin, Car, ShieldCheck, HelpCircle, ArrowRight, ArrowLeft } from "lucide-react";
 import CTA from "../../../components/home/CTA";
 import { notFound } from "next/navigation";
 
@@ -79,6 +79,18 @@ export default async function ServiceDetailPage({ params }: Props) {
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent" />
+        
+        {/* Back Button */}
+        <div className="absolute top-8 left-4 sm:left-8 z-20">
+          <Link 
+            href="/services" 
+            className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md hover:bg-white/20 text-white px-4 py-2 rounded-full border border-white/20 transition-all duration-300 hover:scale-105"
+          >
+            <ArrowLeft size={18} />
+            <span className="text-sm font-semibold">Back to Services</span>
+          </Link>
+        </div>
+
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4 mt-20">
           <h1 className="font-playfair font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight mb-4">
             {service.title}

@@ -180,7 +180,7 @@ export default function Contact() {
                     required
                     value={formData.phoneNumber}
                     onChange={handleChange}
-                    placeholder="e.g. +1 555-0199"
+                    placeholder="e.g. 9824962065"
                     className="w-full bg-zinc-50 border border-zinc-200 focus:border-primary focus:bg-white rounded-xl py-3 px-4 text-sm font-sans focus:outline-none transition-all duration-300"
                   />
                 </div>
@@ -196,7 +196,7 @@ export default function Contact() {
                     name="country"
                     value={formData.country}
                     onChange={handleChange}
-                    placeholder="e.g. Australia"
+                    placeholder="e.g. Nepal"
                     className="w-full bg-zinc-50 border border-zinc-200 focus:border-primary focus:bg-white rounded-xl py-3 px-4 text-sm font-sans focus:outline-none transition-all duration-300"
                   />
                 </div>

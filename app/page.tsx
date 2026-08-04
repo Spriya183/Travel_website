@@ -24,7 +24,7 @@ export default function Home() {
 
       {/* Services Showcase Cards - Links to /services */}
       <div className="py-8">
-        <Link href="/services"><Services /></Link>
+        <Services />
       </div>
 
       {/* Testimonials Auto Slider Carousel */}

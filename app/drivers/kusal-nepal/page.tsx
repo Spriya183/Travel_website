@@ -1,13 +1,13 @@
 "use client";
 
-import { motion } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { 
   ArrowLeft, Star, Calendar, Globe, Shield, Award, 
-  Phone, Mail, MapPin, CheckCircle, Car, Clock
+  Phone, Mail, CheckCircle, Car, Clock
 } from "lucide-react";
 
-export default function RamBahadurThapaPage() {
+export default function KusalNepalPage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -25,23 +25,24 @@ export default function RamBahadurThapaPage() {
             </Link>
 
             <div className="flex flex-col md:flex-row items-center gap-8">
-              <div className="w-40 h-40 rounded-full bg-gradient-to-br from-gold to-gold-light flex items-center justify-center text-white text-6xl font-bold shadow-2xl border-4 border-white">
-                RBT
+              <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl">
+                {/* Full Pashupatinath image for Kusal Nepal */}
+                <Image 
+                  src="/images/kusal.jpg" 
+                  alt="Kusal Nepal"
+                  fill
+                  className="object-cover"
+                />
+                {/* Subtle dark overlay for contrast */}
+                <div className="absolute inset-0 bg-black/20" />
               </div>
 
               <div className="text-white text-center md:text-left">
-                <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-1.5 rounded-full mb-3">
-                  <Award size={16} className="text-gold" />
-                  <span className="text-sm font-bold">Gold Certified Driver</span>
-                </div>
-                <h1 className="font-playfair text-4xl md:text-5xl font-black mb-2">Ram Bahadur Thapa</h1>
-                <p className="text-xl text-zinc-200 mb-4">Senior Tour Driver & Guide</p>
+               
+                <h1 className="font-playfair text-4xl md:text-5xl font-black mb-2">Kusal Nepal</h1>
+                <p className="text-xl text-zinc-200 mb-4">Tour Driver & Guide</p>
                 <div className="flex items-center gap-4 justify-center md:justify-start">
-                  <div className="flex items-center gap-1">
-                    <Star size={18} className="text-gold fill-gold" />
-                    <span className="font-bold text-lg">4.9</span>
-                    <span className="text-zinc-200 text-sm">(120+ reviews)</span>
-                  </div>
+                 
                 </div>
               </div>
             </div>
@@ -63,7 +64,7 @@ export default function RamBahadurThapaPage() {
                     <Calendar size={18} className="text-gold flex-shrink-0" />
                     <div>
                       <p className="text-zinc-500 text-xs">Experience</p>
-                      <p className="font-semibold text-luxury-dark">12+ Years</p>
+                      <p className="font-semibold text-luxury-dark">5+ Years</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3 text-sm">
@@ -84,30 +85,29 @@ export default function RamBahadurThapaPage() {
                     <Car size={18} className="text-gold flex-shrink-0" />
                     <div>
                       <p className="text-zinc-500 text-xs">Vehicle</p>
-                      <p className="font-semibold text-luxury-dark">Tourist SUV & Sedan</p>
+                      <p className="font-semibold text-luxury-dark">Tourist Taxi</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Contact Card */}
               <div className="bg-gradient-to-br from-gold/10 to-gold-light/10 rounded-2xl p-6 border border-gold/20">
-                <h3 className="font-sans font-bold text-lg text-luxury-dark mb-4">Contact Ram</h3>
+                <h3 className="font-sans font-bold text-lg text-luxury-dark mb-4">Contact Kusal</h3>
                 <div className="space-y-3">
-                  <a href="https://wa.me/9779824962065" target="_blank" rel="noopener noreferrer"
+                  <a href="tel:+9779824962065"
                     className="flex items-center gap-3 bg-white rounded-lg p-3 hover:shadow-lg transition-all">
                     <Phone size={18} className="text-gold" />
                     <div>
-                      <p className="text-xs text-zinc-500">WhatsApp</p>
+                      <p className="text-xs text-zinc-500">Call Now</p>
                       <p className="font-semibold text-luxury-dark text-sm">+977 9824962065</p>
                     </div>
                   </a>
-                  <a href="mailto:adhikarispriya@gmail.com"
+                  <a href="https://wa.me/9779824962065" target="_blank" rel="noopener noreferrer"
                     className="flex items-center gap-3 bg-white rounded-lg p-3 hover:shadow-lg transition-all">
                     <Mail size={18} className="text-gold" />
                     <div>
-                      <p className="text-xs text-zinc-500">Email</p>
-                      <p className="font-semibold text-luxury-dark text-sm">adhikarispriya@gmail.com</p>
+                      <p className="text-xs text-zinc-500">WhatsApp</p>
+                      <p className="font-semibold text-luxury-dark text-sm">+977 9824962065</p>
                     </div>
                   </a>
                 </div>
@@ -134,7 +134,7 @@ export default function RamBahadurThapaPage() {
                 <h2 className="font-playfair text-2xl font-bold text-luxury-dark mb-4">Professional Introduction</h2>
                 <div className="space-y-4 text-zinc-700 leading-relaxed">
                   <p>
-                    Namaste! I&apos;m Ram Bahadur Thapa, a senior professional driver with over 12 years of experience 
+                    Namaste! I&apos;m Kusal Nepal, a professional driver with over 5 years of experience 
                     in tourist transportation across Nepal. I take immense pride in providing safe, comfortable, and 
                     memorable travel experiences for visitors from around the world.
                   </p>
@@ -181,7 +181,7 @@ export default function RamBahadurThapaPage() {
                     <Shield className="text-gold flex-shrink-0 mt-1" size={24} />
                     <div>
                       <h4 className="font-semibold text-luxury-dark mb-1">Safety First Approach</h4>
-                      <p>Perfect safety record with zero accidents in 12 years. Regular vehicle maintenance, 
+                      <p>Perfect safety record with zero accidents in 5+ years. Regular vehicle maintenance, 
                       defensive driving techniques, and comprehensive insurance coverage.</p>
                     </div>
                   </div>
@@ -209,7 +209,7 @@ export default function RamBahadurThapaPage() {
                 <h2 className="font-playfair text-2xl font-bold text-luxury-dark mb-6">Why Travelers Choose Me</h2>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {[
-                    { title: "Experienced Professional", desc: "12+ years of tourist driving experience" },
+                    { title: "Experienced Professional", desc: "5+ years of tourist driving experience" },
                     { title: "Local Expert", desc: "Deep knowledge of Nepal's roads and culture" },
                     { title: "Multilingual", desc: "Fluent in English, Hindi, and Nepali" },
                     { title: "Reliable & Punctual", desc: "Always on time, never miss a pickup" },

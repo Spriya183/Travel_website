@@ -24,7 +24,6 @@ export default function Navbar() {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about" },
     { name: "Gallery", href: "/gallery" },
-    { name: "Testimonials", href: "/testimonials" },
     { name: "Contact", href: "/contact" },
   ];
 
@@ -103,15 +102,6 @@ export default function Navbar() {
                   }`}
               >
                 Gallery
-              </Link>
-              <Link
-                href="/testimonials"
-                className={`font-sans font-medium text-sm px-4 py-2 rounded-lg transition-all duration-300 ${pathname === "/testimonials"
-                    ? "text-gold bg-gold/5"
-                    : "text-luxury-dark hover:text-gold hover:bg-gold/5"
-                  }`}
-              >
-                Testimonials
               </Link>
               <Link
                 href="/contact"

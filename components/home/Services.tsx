@@ -101,37 +101,38 @@ export default function Services() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {services.map((service, idx) => (
             <motion.div key={idx} variants={itemVariants}>
               <Link
                 href={`/services/${service.slug}`}
-                className="group block h-full bg-white rounded-2xl overflow-hidden border border-zinc-200/60 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-1"
+                className="group block h-full bg-white rounded-2xl overflow-hidden border border-gold/10 shadow-luxury hover:shadow-luxury-lg transition-all duration-500 hover:-translate-y-2"
               >
                 {/* Image Container */}
-                <div className="relative w-full h-48 overflow-hidden">
+                <div className="relative w-full h-64 overflow-hidden">
                   <Image
                     src={service.image}
                     alt={service.title}
                     fill
                     className="object-cover transform group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                    sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 33vw"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
                   {/* Overlay Gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end p-4">
-                    <span className="text-white text-sm font-semibold flex items-center gap-1 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                      View Details <ArrowUpRight size={16} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-luxury-dark/90 via-primary/50 to-transparent opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute inset-0 flex items-end p-6">
+                    <span className="text-white text-base font-semibold flex items-center gap-2 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                      View Details <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                     </span>
                   </div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6">
-                  <h4 className="font-sans font-bold text-lg text-luxury-dark mb-2 group-hover:text-gold transition-colors duration-300">
+                  <h4 className="font-sans font-bold text-xl text-luxury-dark mb-3 group-hover:text-gold transition-colors duration-300">
                     {service.title}
                   </h4>
-                  <p className="font-sans text-sm text-zinc-600 font-light leading-relaxed line-clamp-3">
+                  <p className="font-sans text-sm text-zinc-600 leading-relaxed line-clamp-3">
                     {service.description}
                   </p>
                 </div>

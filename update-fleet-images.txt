@@ -1,0 +1,21 @@
+After you place car1.jpg and car2.jpg in public/images/fleet/ folder:
+
+1. Open: app/about/page.tsx
+
+2. Find line ~555: 
+   image: "/images/about_taxi.png",
+   
+   Replace with:
+   image: "/images/fleet/car1.jpg",
+
+3. Find line ~566:
+   image: "/images/service_airport.png",
+   
+   Replace with:
+   image: "/images/fleet/car2.jpg",
+
+4. Save the file
+
+5. The website will automatically show your real car photos!
+
+That's it! Your actual cars will be displayed with their correct license plates.
