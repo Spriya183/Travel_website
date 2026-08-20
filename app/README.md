@@ -180,8 +180,8 @@ export default function ContactPage() {
 ```
 
 **Contact Cards:**
-1. Phone/WhatsApp: +977 9824962065
-2. Email: adhikarispriya@gmail.com
+1. Phone/WhatsApp: +977 9851005029, +977 9817872015
+2. Email: classicjourneynepal2007@gmail.com
 3. Location: Kathmandu, Nepal
 4. Hours: 24/7 Service
 

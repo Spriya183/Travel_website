@@ -16,10 +16,10 @@ export default function ContactPage() {
     message: ""
   });
 
- const handleSubmit = (e: React.FormEvent) => {
-  e.preventDefault();
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  const whatsappMessage = `Hi, I'm ${formData.name}.
+    const whatsappMessage = `Hi, I'm ${formData.name}.
 Message: ${formData.message}.
 Service: ${formData.service}.
 Date: ${formData.date}.
@@ -27,10 +27,10 @@ Contact:
 Email: ${formData.email}
 Phone Number: ${formData.phone}`;
 
-  const whatsappUrl = `https://wa.me/9779824962065?text=${encodeURIComponent(whatsappMessage)}`;
+    const whatsappUrl = `https://wa.me/9779851005029?text=${encodeURIComponent(whatsappMessage)}`;
 
-  window.open(whatsappUrl, '_blank');
-};
+    window.open(whatsappUrl, '_blank');
+  };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white via-luxury-cream to-white">
@@ -46,21 +46,21 @@ Phone Number: ${formData.phone}`;
           />
           <div className="absolute inset-0 bg-gradient-to-b from-luxury-dark/80 via-primary/70 to-luxury-dark/90" />
         </div>
-        
+
         <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
           <Link href="/" className="inline-flex items-center gap-2 text-white/80 hover:text-gold mb-6 transition-colors">
             <ArrowLeft size={20} />
             <span>Back to Home</span>
           </Link>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="font-playfair text-4xl sm:text-5xl md:text-6xl font-black mb-4 text-shadow-premium"
           >
             Let's Plan Your Journey
           </motion.h1>
-          <motion.p 
+          <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
@@ -75,7 +75,7 @@ Phone Number: ${formData.phone}`;
       <section className="py-24 -mt-20 relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-            
+
             {/* Left - Contact Info Cards */}
             <div className="lg:col-span-2 space-y-6">
               <motion.div
@@ -85,7 +85,7 @@ Phone Number: ${formData.phone}`;
               >
                 <h2 className="font-playfair text-3xl font-bold text-luxury-dark mb-6">Get in Touch</h2>
                 <p className="text-zinc-600 leading-relaxed mb-8">
-                  Have questions about our services? Want to book a tour? We're here to help you 
+                  Have questions about our services? Want to book a tour? We're here to help you
                   plan the perfect Nepal adventure.
                 </p>
               </motion.div>
@@ -103,9 +103,13 @@ Phone Number: ${formData.phone}`;
                   </div>
                   <div>
                     <h3 className="font-sans font-bold text-lg text-luxury-dark mb-2">Phone & WhatsApp</h3>
-                    <a href="https://wa.me/9779824962065" target="_blank" rel="noopener noreferrer" 
+                    <a href="https://wa.me/9779851005029" target="_blank" rel="noopener noreferrer"
                       className="text-gold hover:text-gold-dark transition-colors text-lg font-semibold block mb-1">
-                      +977 9824962065
+                      +977 9851005029 (WhatsApp)
+                    </a>
+                    <a href="tel:+9779817872015"
+                      className="text-gold hover:text-gold-dark transition-colors text-lg font-semibold block mb-1">
+                      +977 9817872015
                     </a>
                     <p className="text-sm text-zinc-500">Available 24/7 for bookings</p>
                   </div>
@@ -124,9 +128,9 @@ Phone Number: ${formData.phone}`;
                   </div>
                   <div>
                     <h3 className="font-sans font-bold text-lg text-luxury-dark mb-2">Email Address</h3>
-                    <a href="mailto:adhikarispriya@gmail.com" 
+                    <a href="mailto:classicjourneynepal2007@gmail.com"
                       className="text-primary hover:text-secondary transition-colors font-semibold block mb-1">
-                      adhikarispriya@gmail.com
+                      classicjourneynepal2007@gmail.com
                     </a>
                     <p className="text-sm text-zinc-500">We'll respond within 24 hours</p>
                   </div>
@@ -171,7 +175,7 @@ Phone Number: ${formData.phone}`;
             </div>
 
             {/* Right - Contact Form */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.4 }}
@@ -193,7 +197,7 @@ Phone Number: ${formData.phone}`;
                           type="text"
                           required
                           value={formData.name}
-                          onChange={(e) => setFormData({...formData, name: e.target.value})}
+                          onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                           className="w-full pl-12 pr-4 py-3.5 border border-gold/20 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all outline-none"
                           placeholder="Spriya Adhikari"
                         />
@@ -210,9 +214,9 @@ Phone Number: ${formData.phone}`;
                           type="email"
                           required
                           value={formData.email}
-                          onChange={(e) => setFormData({...formData, email: e.target.value})}
+                          onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                           className="w-full pl-12 pr-4 py-3.5 border border-gold/20 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all outline-none"
-                          placeholder="adhikarispriya4@gmail.com"
+                          placeholder="example@gmail.com"
                         />
                       </div>
                     </div>
@@ -228,7 +232,7 @@ Phone Number: ${formData.phone}`;
                         <input
                           type="tel"
                           value={formData.phone}
-                          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                           className="w-full pl-12 pr-4 py-3.5 border border-gold/20 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all outline-none"
                           placeholder="+977 9800000000"
                         />
@@ -244,7 +248,7 @@ Phone Number: ${formData.phone}`;
                         <input
                           type="date"
                           value={formData.date}
-                          onChange={(e) => setFormData({...formData, date: e.target.value})}
+                          onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                           className="w-full pl-12 pr-4 py-3.5 border border-gold/20 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all outline-none"
                         />
                       </div>
@@ -257,7 +261,7 @@ Phone Number: ${formData.phone}`;
                     </label>
                     <select
                       value={formData.service}
-                      onChange={(e) => setFormData({...formData, service: e.target.value})}
+                      onChange={(e) => setFormData({ ...formData, service: e.target.value })}
                       className="w-full px-4 py-3.5 border border-gold/20 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all outline-none"
                     >
                       <option value="">Select a service</option>
@@ -269,6 +273,7 @@ Phone Number: ${formData.phone}`;
                       <option value="Lumbini Tour">Lumbini Pilgrimage</option>
                       <option value="Custom Tour">Custom Nepal Tour</option>
                       <option value="Multi-Day Tour">Multi-Day Package</option>
+                      <option value="Others">Others</option>
                     </select>
                   </div>
 
@@ -282,7 +287,7 @@ Phone Number: ${formData.phone}`;
                         required
                         rows={5}
                         value={formData.message}
-                        onChange={(e) => setFormData({...formData, message: e.target.value})}
+                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         className="w-full pl-12 pr-4 py-3.5 border border-gold/20 rounded-xl focus:ring-2 focus:ring-gold/30 focus:border-gold transition-all outline-none resize-none"
                         placeholder="Tell us about your travel plans, number of passengers, destinations you'd like to visit..."
                       />

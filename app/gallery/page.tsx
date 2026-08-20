@@ -11,46 +11,64 @@ export default function GalleryPage() {
     {
       title: "Kathmandu City Tour",
       images: [
-        { src: "/images/hero_pashupatinath.png", alt: "Pashupatinath Temple" },
-        { src: "/images/hero_pashupatinath.png", alt: "Swayambhunath Stupa" },
-        { src: "/images/hero_pashupatinath.png", alt: "Kathmandu Durbar Square" },
-        { src: "/images/hero_pashupatinath.png", alt: "Boudhanath Stupa" },
+        { src: "/images/gallarypicture/pasupati.png", alt: "Pashupatinath Temple", description: "Sacred Hindu temple complex on the Bagmati River" },
+        { src: "/images/gallarypicture/syambu.png", alt: "Swayambhunath Stupa", description: "Ancient religious complex atop a hill, also known as the Monkey Temple" },
+        { src: "/images/gallarypicture/download.jpg", alt: "Kathmandu Durbar Square", description: "Historic plaza featuring ancient palaces and temples" },
+        { src: "/images/gallarypicture/baudhnath.jpg", alt: "Boudhanath Stupa", description: "One of the largest spherical stupas in Nepal" },
+        { src: "/images/gallarypicture/bhaktapurds.jpg", alt: "Bhaktapur Durbar Square", description: "Well-preserved ancient city known for its rich Newari culture" },
+        { src: "/images/gallarypicture/patands.jpg", alt: "Patan Durbar Square", description: "Center of traditional arts and exquisite Newar architecture" },
+        { src: "/images/gallarypicture/changunarayanjpg.jpg", alt: "Changu Narayan Temple", description: "Oldest Hindu temple in Nepal, dedicated to Lord Vishnu" },
+        { src: "/images/gallarypicture/Chandragiricablecar.jpg", alt: "Chandragiri Hills", description: "Scenic hill station offering panoramic views of the Himalayas via cable car" },
       ]
     },
     {
       title: "Pokhara Tour",
       images: [
-        { src: "/images/hero_pokhara.png", alt: "Fewa Lake Pokhara" },
-        { src: "/images/hero_pokhara.png", alt: "Sarangkot Sunrise" },
-        { src: "/images/hero_pokhara.png", alt: "Davis Falls" },
-        { src: "/images/hero_pokhara.png", alt: "World Peace Pagoda" },
+        { src: "/images/gallarypicture/lake.jpg", alt: "Fewa Lake Pokhara", description: "Peaceful waters surrounded by stunning Himalayan landscapes, perfect for boating and relaxing" },
+        { src: "/images/gallarypicture/begnas.jpg", alt: "Begnas Lake", description: "A tranquil lake surrounded by green hills, offering a peaceful escape from the city" },
+        { src: "/images/gallarypicture/sarangkot.jpg", alt: "Sarangkot Sunrise", description: "Famous hilltop destination offering breathtaking sunrise views over the Annapurna and Dhaulagiri ranges" },
+        { src: "/images/gallarypicture/santistupa.jpg", alt: "World Peace Pagoda", description: "A beautiful hilltop Buddhist stupa offering panoramic views of Pokhara, Phewa Lake, and the Himalayas" },
+        { src: "/images/gallarypicture/statue.jpg", alt: "Pumdikot Shiva Statue", description: "A magnificent Shiva statue on Pumdikot Hill with spectacular views of Pokhara and the surrounding mountains" },
+        { src: "/images/gallarypicture/devisfall.jpg", alt: "Devis Fall", description: "A fascinating natural waterfall where water flows dramatically into an underground passage" },
+        { src: "/images/gallarypicture/cave.jpg", alt: "Gupteshwor Mahadev Cave", description: "A sacred and naturally formed limestone cave featuring impressive rock formations and a spiritual atmosphere" },
+        { src: "/images/gallarypicture/museum.jpg", alt: "International Mountain Museum", description: "A fascinating museum showcasing the history, culture, people, and achievements of the Himalayas and mountaineering" },
       ]
     },
     {
       title: "Chitwan Safari",
       images: [
-        { src: "/images/service_chitwan.png", alt: "Chitwan National Park" },
-        { src: "/images/service_chitwan.png", alt: "Jungle Safari" },
-        { src: "/images/service_chitwan.png", alt: "One-horned Rhino" },
-        { src: "/images/service_chitwan.png", alt: "Tharu Cultural Show" },
+        { src: "/images/gallarypicture/safari.jpg", alt: "Jungle Safari", description: "First national park of Nepal and a renowned World Heritage Site" },
+        { src: "/images/gallarypicture/canoe.jpg", alt: "Canoe Ride", description: "Exciting jeep or elephant rides through the dense tropical forest" },
+        { src: "/images/gallarypicture/ghariyal.jpg", alt: "Ghariyal center", description: "Spot the rare and majestic Greater One-horned Rhinoceros in its habitat" },
+        { src: "/images/gallarypicture/rapti.jpg", alt: "Rapti sunset", description: "Experience the vibrant traditional dances of the indigenous Tharu people" },
+        { src: "/images/gallarypicture/tharudance.jpg", alt: "Tharu Dance", description: "First national park of Nepal and a renowned World Heritage Site" },
+        { src: "/images/gallarypicture/devghat.jpg", alt: "Devghat Dham", description: "Exciting jeep or elephant rides through the dense tropical forest" },
+        { src: "/images/gallarypicture/elephant.jpg", alt: "Elephant Breeding Center", description: "Spot the rare and majestic Greater One-horned Rhinoceros in its habitat" },
+        { src: "/images/gallarypicture/narayani.jpg", alt: "Narayani River", description: "Experience the vibrant traditional dances of the indigenous Tharu people" },
+      ]
+
+    },
+    {
+      title: "Lumbini Tour",
+      images: [
+        { src: "/images/gallarypicture/mayadevi.jpg", alt: "Maya Devi Temple", description: "Breathtaking first light illuminating the snow-capped peaks" },
+        { src: "/images/gallarypicture/ashoka.jpg", alt: "Ashoka Pillar", description: "Famous hill station for sweeping Himalayan panoramas near Kathmandu" },
+        { src: "/images/gallarypicture/garden.jpg", alt: "Lumbini Sacred Garden", description: "Scenic drives through rugged mountainous terrain and winding roads" },
+        { src: "/images/gallarypicture/peace.jpg", alt: "World Peace Pagoda", description: "Magnificent views of the awe-inspiring Annapurna massif" },
+        { src: "/images/gallarypicture/myanmar.jpg", alt: "Myanmar Golden Temple", description: "Breathtaking first light illuminating the snow-capped peaks" },
+        { src: "/images/gallarypicture/chinatemple.jpg", alt: "China Temple (Zhong Hua Chinese Buddhist Monaster", description: "Famous hill station for sweeping Himalayan panoramas near Kathmandu" },
+        { src: "/images/gallarypicture/thai.jpg", alt: "Thai Monastery", description: "Scenic drives through rugged mountainous terrain and winding roads" },
+        { src: "/images/gallarypicture/monasticzone.jpg", alt: "Lumbini Monastic Zone", description: "Magnificent views of the awe-inspiring Annapurna massif" },
       ]
     },
     {
-      title: "Mountain Views",
+      title: "Mountain View",
       images: [
-        { src: "/images/hero_mountains.png", alt: "Himalayan Sunrise" },
-        { src: "/images/hero_mountains.png", alt: "Nagarkot View" },
-        { src: "/images/hero_mountains.png", alt: "Mountain Highway" },
-        { src: "/images/hero_mountains.png", alt: "Annapurna Range" },
-      ]
-    },
-    {
-      title: "Airport Services",
-      images: [
-        { src: "/images/service_airport.png", alt: "Airport Pickup Service" },
-        { src: "/images/about_taxi.png", alt: "Tourist Taxi" },
-        { src: "/images/service_airport.png", alt: "Airport Transfer" },
-        { src: "/images/about_taxi.png", alt: "Luxury Vehicle" },
+        { src: "/images/gallarypicture/nagarkot.jpg", alt: "Nagarkot", description: "Prompt and reliable meet-and-greet service at the airport" },
+        { src: "/images/gallarypicture/chandragiri-cover.png", alt: "Chandragiri", description: "Comfortable and well-maintained vehicles for local sightseeing" },
+        { src: "/images/gallarypicture/dhulikhel.jpg", alt: "Dhulikhel", description: "Hassle-free transfers to your hotel or destination" },
+        { src: "/images/gallarypicture/shivapuri-hiking.jpeg", alt: "Shivapuri Peak", description: "Premium transport options ensuring VIP comfort and style" },
+        { src: "/images/gallarypicture/lakuri.jpg", alt: "Lakuri Bhanjyang", description: "Premium transport options ensuring VIP comfort and style" },
       ]
     },
   ];
@@ -58,7 +76,7 @@ export default function GalleryPage() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [lightboxCategory, setLightboxCategory] = useState<number>(0);
 
-  const allImages = galleryCategories.flatMap((cat, catIdx) => 
+  const allImages = galleryCategories.flatMap((cat, catIdx) =>
     cat.images.map((img, imgIdx) => ({ ...img, category: cat.title, catIdx, imgIdx }))
   );
 
@@ -103,7 +121,7 @@ export default function GalleryPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-luxury-dark/80 via-primary/70 to-luxury-dark/90" />
         </div>
-        
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -114,7 +132,7 @@ export default function GalleryPage() {
             <ArrowLeft size={20} />
             <span>Back to Home</span>
           </Link>
-          
+
           <h1 className="font-playfair text-4xl sm:text-5xl md:text-7xl font-black mb-6 text-shadow-premium">
             Travel Gallery
           </h1>
@@ -162,9 +180,12 @@ export default function GalleryPage() {
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
-                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center text-white z-10">
-                      <ZoomIn size={32} className="text-gold mb-2 transform scale-75 group-hover:scale-100 transition-transform duration-300" />
-                      <span className="font-sans font-bold text-sm tracking-wider uppercase">{img.alt}</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex flex-col justify-end p-6 text-white z-10">
+                      <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <ZoomIn size={24} className="text-gold mb-3 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100" />
+                        <h4 className="font-playfair text-xl font-bold text-white mb-2">{img.alt}</h4>
+                        <p className="text-sm text-zinc-300 line-clamp-2">{img.description}</p>
+                      </div>
                     </div>
                   </motion.div>
                 ))}
@@ -206,12 +227,15 @@ export default function GalleryPage() {
               />
             </div>
             <div className="text-center mt-4">
-              <p className="text-xs text-gold uppercase tracking-wider font-semibold">
+              <p className="text-xs text-gold uppercase tracking-wider font-semibold mb-2">
                 {allImages[lightboxIndex].category}
               </p>
-              <h4 className="font-playfair text-xl font-bold text-white mt-1">
+              <h4 className="font-playfair text-2xl font-bold text-white mb-2">
                 {allImages[lightboxIndex].alt}
               </h4>
+              <p className="text-sm text-zinc-300 max-w-2xl mx-auto">
+                {allImages[lightboxIndex].description}
+              </p>
             </div>
           </div>
 

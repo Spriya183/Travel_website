@@ -30,8 +30,8 @@ Classic Journey Nepal is a premium travel service website offering:
 - **Professional Drivers** - Experienced, multilingual guides
 
 **Live Site:** [Your Domain Here]  
-**WhatsApp:** +977 9824962065  
-**Email:** adhikarispriya@gmail.com
+**WhatsApp:** +977 9851005029  
+**Email:** classicjourneynepal2007@gmail.com
 
 ---
 
@@ -320,8 +320,8 @@ Detailed documentation available:
 This project uses no backend services, so no environment variables are required.
 
 All contact functionality uses:
-- **WhatsApp:** +977 9824962065
-- **Email:** adhikarispriya@gmail.com
+- **WhatsApp:** +977 9851005029
+- **Email:** classicjourneynepal2007@gmail.com
 
 ---
 
@@ -411,8 +411,8 @@ None at this time.
 ## 📞 Contact & Support
 
 ### **Company Contact**
-- **Phone/WhatsApp:** +977 9824962065
-- **Email:** adhikarispriya@gmail.com
+- **Phone/WhatsApp:** +977 9851005029, +977 9817872015
+- **Email:** classicjourneynepal2007@gmail.com
 - **Location:** Kathmandu, Nepal
 - **Hours:** 24/7 Service
 

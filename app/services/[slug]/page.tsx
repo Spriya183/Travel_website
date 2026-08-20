@@ -2,7 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { CheckCircle2, Clock, MapPin, Car, ShieldCheck, HelpCircle, ArrowRight, ArrowLeft } from "lucide-react";
-import CTA from "../../../components/home/CTA";
+import CTA from "../../../components/features/home/CTA";
 import { notFound } from "next/navigation";
 
 // Mock data for the services
@@ -181,7 +181,7 @@ export default async function ServiceDetailPage({ params }: Props) {
 
                   <div className="mt-8 pt-8 border-t border-white/10">
                     <a 
-                      href="https://wa.me/9779824962065" 
+                      href="https://wa.me/9779851005029" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="block w-full bg-gold hover:bg-white text-primary text-center font-sans font-bold py-4 rounded-xl transition-colors duration-300 shadow-md"

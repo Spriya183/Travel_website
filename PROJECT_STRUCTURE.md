@@ -232,8 +232,8 @@ travelwebsite/
 ## 🔄 Data Flow
 
 ### **Contact Actions**
-- All "Book Now" buttons → WhatsApp: `+977 9824962065`
-- All "Call" buttons → `tel:+9779824962065`
+- All "Book Now" buttons → WhatsApp: `+977 9851005029`
+- All "Call" buttons → `tel:+9779817872015` or `tel:+9779851005029`
 - Contact form → WhatsApp with pre-filled message
 
 ### **Navigation**
@@ -317,8 +317,8 @@ npm start
 
 ## 📱 Contact Information
 
-- **Phone/WhatsApp:** +977 9824962065
-- **Email:** adhikarispriya@gmail.com
+- **Phone/WhatsApp:** +977 9851005029, +977 9817872015
+- **Email:** classicjourneynepal2007@gmail.com
 - **Location:** Kathmandu, Nepal
 - **Hours:** 24/7 Service
 

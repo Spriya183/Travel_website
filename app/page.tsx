@@ -1,10 +1,10 @@
-import Hero from "../components/home/Hero";
-import Features from "../components/home/Features";
-import About from "../components/home/About";
-import Services from "../components/home/Services";
-import Testimonials from "../components/home/Testimonials";
-import CTA from "../components/home/CTA";
-import Contact from "../components/home/Contact";
+import Hero from "../components/features/home/Hero";
+import Features from "../components/features/home/Features";
+import About from "../components/features/home/About";
+import Services from "../components/features/home/Services";
+import Testimonials from "../components/features/home/Testimonials";
+import CTA from "../components/features/home/CTA";
+import Contact from "../components/features/home/Contact";
 import Link from "next/link";
 export default function Home() {
   return (

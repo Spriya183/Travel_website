@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
-import Services from "../../components/home/Services";
-import CTA from "../../components/home/CTA";
+import Services from "../../components/features/home/Services";
+import CTA from "../../components/features/home/CTA";
 
 export const metadata: Metadata = {
   title: "Our Services | Clasic Journey Nepal",
