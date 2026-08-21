@@ -241,6 +241,15 @@ export default function Footer() {
                     className="text-zinc-400 hover:text-gold transition-colors block"
                   >
                     +977 9851005029
+
+                  </a>
+                  <a
+                    href="https://wa.me/9779817872015"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-zinc-400 hover:text-gold transition-colors block"
+                  >
+                    +977 9817872015
                     <span className="block text-xs text-zinc-500 mt-0.5">Available 24/7</span>
                   </a>
                 </div>

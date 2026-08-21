@@ -190,6 +190,15 @@ export default function Contact() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-4 group"
                 >
+                  <a
+                    href="https://wa.me/+9779817872015"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-4 group"
+                  >
+
+                  </a>
+
                   <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-soft-sky text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300">
                     <Phone size={20} />
                   </div>
@@ -201,6 +210,9 @@ export default function Contact() {
 
                     <span className="font-sans font-bold text-base text-zinc-800 group-hover:text-primary transition-colors block">
                       +977 9851005029
+                    </span>
+                    <span className="font-sans font-bold text-base text-zinc-800 group-hover:text-primary transition-colors block">
+                      +977 9817872015
                     </span>
                   </div>
                 </a>

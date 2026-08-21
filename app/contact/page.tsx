@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Phone, Mail, MapPin, Clock, Send, User, MessageSquare, Calendar } from "lucide-react";
+import { ArrowLeft, Phone, Mail, MapPin, Clock, Send, User, MessageSquare, Calendar, CheckCircle2, XCircle } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function ContactPage() {
@@ -16,20 +16,71 @@ export default function ContactPage() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessModal, setShowSuccessModal] = useState(false);
+  const [showErrorModal, setShowErrorModal] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("Failed to send inquiry. Please try again.");
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const whatsappMessage = `Hi, I'm ${formData.name}.
-Message: ${formData.message}.
-Service: ${formData.service}.
-Date: ${formData.date}.
-Contact:
-Email: ${formData.email}
-Phone Number: ${formData.phone}`;
+    setShowSuccessModal(false);
+    setShowErrorModal(false);
 
-    const whatsappUrl = `https://wa.me/9779851005029?text=${encodeURIComponent(whatsappMessage)}`;
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      setErrorMessage("Please fill in all the required fields.");
+      setShowErrorModal(true);
+      return;
+    }
 
-    window.open(whatsappUrl, '_blank');
+    setIsSubmitting(true);
+
+    try {
+      const payload = {
+        fullName: formData.name,
+        email: formData.email,
+        phoneNumber: formData.phone,
+        country: "Not Specified",
+        service: formData.service,
+        date: formData.date,
+        message: formData.message,
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      let result: any = {};
+      try {
+        result = await response.json();
+      } catch {
+        result = {};
+      }
+
+      if (!response.ok || !result.success) {
+        throw new Error(result.message || "Failed to send inquiry. Please try again.");
+      }
+
+      setShowSuccessModal(true);
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        service: "",
+        date: "",
+        message: ""
+      });
+    } catch (error: any) {
+      console.error("Error sending inquiry:", error);
+      setErrorMessage(error.message || "Failed to send inquiry. Please try again.");
+      setShowErrorModal(true);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -103,14 +154,15 @@ Phone Number: ${formData.phone}`;
                   </div>
                   <div>
                     <h3 className="font-sans font-bold text-lg text-luxury-dark mb-2">Phone & WhatsApp</h3>
-                    <a href="https://wa.me/9779851005029" target="_blank" rel="noopener noreferrer"
+                    <a href="https://wa.me/+9779851005029" target="_blank" rel="noopener noreferrer"
                       className="text-gold hover:text-gold-dark transition-colors text-lg font-semibold block mb-1">
-                      +977 9851005029 (WhatsApp)
+                      +977 9851005029
                     </a>
-                    <a href="tel:+9779817872015"
+                    <a href="https://wa.me/+9779817872015" target="_blank" rel="noopener noreferrer"
                       className="text-gold hover:text-gold-dark transition-colors text-lg font-semibold block mb-1">
                       +977 9817872015
                     </a>
+
                     <p className="text-sm text-zinc-500">Available 24/7 for bookings</p>
                   </div>
                 </div>
@@ -296,10 +348,17 @@ Phone Number: ${formData.phone}`;
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-sans font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group"
+                    disabled={isSubmitting}
+                    className="w-full bg-gradient-to-r from-gold to-gold-light hover:from-gold-light hover:to-gold text-white font-sans font-bold py-4 px-8 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 group disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send size={20} className="group-hover:translate-x-1 transition-transform" />
-                    <span>Send Message</span>
+                    {isSubmitting ? (
+                      <div className="h-5 w-5 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                    ) : (
+                      <>
+                        <Send size={20} className="group-hover:translate-x-1 transition-transform" />
+                        <span>Send Message</span>
+                      </>
+                    )}
                   </button>
 
                   <p className="text-xs text-zinc-500 text-center">
@@ -311,6 +370,48 @@ Phone Number: ${formData.phone}`;
           </div>
         </div>
       </section>
+
+      {/* Success Modal */}
+      {showSuccessModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center flex flex-col items-center border border-zinc-100">
+            <div className="w-16 h-16 bg-emerald-50 text-emerald-500 rounded-full flex items-center justify-center mb-6">
+              <CheckCircle2 size={40} className="animate-bounce" />
+            </div>
+            <h4 className="font-playfair text-2xl font-bold text-zinc-950 mb-2">Inquiry Sent!</h4>
+            <p className="font-sans text-sm text-zinc-600 leading-relaxed font-light mb-8">
+              Thank you! Your inquiry has been sent successfully. Our team will review the details and get back to you via email or WhatsApp within a few hours.
+            </p>
+            <button
+              onClick={() => setShowSuccessModal(false)}
+              className="w-full bg-primary hover:bg-primary-dark text-white font-sans font-bold py-3 rounded-xl transition-all cursor-pointer"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
+
+      {/* Error Modal */}
+      {showErrorModal && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] flex items-center justify-center p-4 animate-fade-in">
+          <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center flex flex-col items-center border border-zinc-100">
+            <div className="w-16 h-16 bg-red-50 text-red-500 rounded-full flex items-center justify-center mb-6">
+              <XCircle size={40} />
+            </div>
+            <h4 className="font-playfair text-2xl font-bold text-zinc-950 mb-2">Failed to Send</h4>
+            <p className="font-sans text-sm text-zinc-600 leading-relaxed font-light mb-8">
+              {errorMessage}
+            </p>
+            <button
+              onClick={() => setShowErrorModal(false)}
+              className="w-full bg-primary hover:bg-primary-dark text-white font-sans font-bold py-3 rounded-xl transition-all cursor-pointer"
+            >
+              Try Again
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
